@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="title">
+            <img src="cart.svg" alt="Shopping Cart">
+            <h1>Shopping List</h1>
+        </div>
+        
+        <form id="shopping-form">
+            <input type="text" id="item-input" placeholder="Add a new item..." required>
+            <select id="category-select">
+                <option value="Groceries">Groceries</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Other">Other</option>
+            </select>
+            <button type="submit" id="add-button">Add Item</button>
+        </form>
+
+        <input type="text" id="search-input" placeholder="Search for items..." onkeyup="searchItems()">
+        
+        <div class="filters">
+            <label for="filter-category">Filter by Category:</label>
+            <select id="filter-category" onchange="filterItems()">
+                <option value="all">All</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="filters">
+            <label for="filter-date">Filter by Date Added:</label>
+            <input type="date" id="filter-date-from">
+            <input type="date" id="filter-date-to">
+            <button onclick="filterItems()" id="filter-date-button">Filter by Date</button>
+        </div>
+
+        <table id="shopping-list-table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="shopping-list"></tbody>
+        </table>
+
+        <div id="pagination-controls"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
